@@ -26,14 +26,14 @@ class FaceMeshDetector():
                     self.mpDraw.draw_landmarks(vid, faceLms, self.mpFaceMeshConnection.FACEMESH_CONTOURS, self.drawSpec, self.drawSpec)
                     face = []
 
-                    for id,lm in enumerate(faceLms.landmark):
-                        
-                        ih, iw, ic = vid.shape
-                        x,y = int(lm.x*iw), int(lm.y*ih)
-                        #cv.putText(vid, str(id), (x, y), cv.FONT_HERSHEY_PLAIN,
-                        # 0.7, (0, 255, 0), 1)
-                        face.append([x,y])
-                        faces.append(face)
+                for id,lm in enumerate(faceLms.landmark):
+                    
+                    ih, iw, ic = vid.shape
+                    x,y = int(lm.x*iw), int(lm.y*ih)
+                    #cv.putText(vid, str(id), (x, y), cv.FONT_HERSHEY_PLAIN,
+                    # 0.7, (0, 255, 0), 1)
+                    face.append([x,y])
+                    faces.append(face)
 
         return vid, faces
 
