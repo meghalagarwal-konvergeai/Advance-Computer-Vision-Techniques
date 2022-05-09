@@ -2,11 +2,12 @@ import cv2 as cv
 import mediapipe as mp
 import time
 
+# Defining the camera to use for capturing
 cap = cv.VideoCapture(0)
 
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
-mpDraw = mp.solutions.drawing_utils
+mpDraw = mp.solutions.drawing_utils # Drawing the lines and the points on the hands
 
 cTime = 0
 pTime = 0
@@ -27,10 +28,12 @@ while True:
 
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
 
+    # To capture the current time and pervious time of detections
     cTime = time.time()
     fps = 1/(cTime-pTime)
     pTime = cTime
 
+    # Reflecting the Frames per second captured on every detection
     cv.putText(img, str(int(fps)), (10, 70), cv.FONT_HERSHEY_TRIPLEX, 3, (0,0,255),3)
 
 

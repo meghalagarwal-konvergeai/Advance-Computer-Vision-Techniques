@@ -13,6 +13,7 @@ class handDetector():
         self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.detectionCon, self.trackCon)
         self.mpDraw = mp.solutions.drawing_utils
 
+    # Detecting the hand and defining the lines and points on it
     def findHands(self, img, draw=True):
         imgRGB = cv.cvtColor(img, cv.COLOR_BGR2RGB)
         self.results = self.hands.process(imgRGB)
@@ -24,6 +25,7 @@ class handDetector():
 
         return img
 
+    # Capturing the coordinates of 4th id which is tip of thumb
     def findPosition(self, img, handNo=0, draw=True):
         lmList = []
         if self.results.multi_hand_landmarks:
@@ -39,7 +41,8 @@ class handDetector():
 
         return lmList
 
-def main():
+
+if __name__ == "__main__":
     pTime = 0
     cTime = 0
 
@@ -62,10 +65,6 @@ def main():
 
         cv.imshow("Image", img)
         cv.waitKey(1)
-
-
-if __name__ == "__main__":
-    main()
 
 
 
