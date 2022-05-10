@@ -55,12 +55,11 @@ class handDetector():
         
         if draw:
             cv.rectangle(vid, (xmin-20, ymin-20), (xmax+20, ymax+20), (0, 255, 0), 2)
-    
+        print(xmin)
         return self.lmList , bbox
     
     def fingersUp(self):
         fingers = []
-        print(f"lmList Details = {self.lmList[self.tipIds[0]][1]}")
         # Thumb
         if self.lmList[self.tipIds[0]][1] > self.lmList[self.tipIds[0] - 1][1]:
             fingers.append(1)

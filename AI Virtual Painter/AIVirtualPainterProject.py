@@ -37,9 +37,9 @@ for imPath in myList:
         # 2. Find Hand Landmarks
         vid = detector.findHands(vid)
         lmList, bbox = detector.findPosition(vid, draw=False)
-        print(lmList)
+
         if len(lmList) != 0:
-            
+            print(lmList)
             # tip of index and middle fingers
             x1, y1 = lmList[8][1:]
             x2, y2 = lmList[12][1:]

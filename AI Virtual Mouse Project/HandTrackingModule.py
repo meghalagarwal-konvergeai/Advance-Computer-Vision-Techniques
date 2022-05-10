@@ -54,7 +54,7 @@ class handDetector():
     
         if draw:
             cv2.rectangle(img, (xmin - 20, ymin - 20), (xmax + 20, ymax + 20), (0, 255, 0), 2)
-            
+        print(f"lmList Details= {xmin, xmax}")
         return self.lmList, bbox
     
     def fingersUp(self):
