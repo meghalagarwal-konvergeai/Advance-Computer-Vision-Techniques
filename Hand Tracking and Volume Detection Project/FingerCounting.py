@@ -2,10 +2,13 @@ import cv2 as cv
 import time
 import os
 import HandTrackingModule as htm
+
 wCam, hCam = 640, 480
+
 cap = cv.VideoCapture(0)
 cap.set(3, wCam)
 cap.set(4, hCam)
+
 folderPath = "/home/meghal/Personal/Konverge_AI/Training/Advance Computer Visions/Hand Tracking and Volume Detection Project/Fingers"
 myList = os.listdir(folderPath)
 myList.sort()
