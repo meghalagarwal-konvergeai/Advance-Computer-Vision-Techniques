@@ -65,6 +65,3 @@ if __name__ == "__main__":
 
         cv.imshow("Image", img)
         cv.waitKey(1)
-
-
-

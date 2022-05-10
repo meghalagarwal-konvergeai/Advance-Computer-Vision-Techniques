@@ -9,7 +9,7 @@ cap = cv.VideoCapture(0)
 cap.set(3, wCam)
 cap.set(4, hCam)
 
-folderPath = "/home/meghal/Personal/Konverge_AI/Training/Advance Computer Visions/Hand Tracking and Volume Detection Project/Fingers"
+folderPath = "/home/meghal/Personal/Konverge_AI/Training/Advance Computer Visions/Counting Fingers Project/Fingers"
 myList = os.listdir(folderPath)
 myList.sort()
 print(myList)

@@ -3,7 +3,7 @@ import numpy as np
 import time
 import PoseEstimationModule as pm
 
-cap = cv.VideoCapture("/home/meghal/Personal/Konverge_AI/Training/Advance Computer Visions/Pose Estimations Project/Exercise Video and Image/2022-05-09 20-18-02.mp4")
+cap = cv.VideoCapture("/home/meghal/Personal/Konverge_AI/Training/Advance Computer Visions/AI Trainer Project/Exercise Video and Image/2022-05-09 20-18-02.mp4")
 
 detector = pm.poseDetector()
 count = 0

@@ -64,4 +64,4 @@ if __name__ == "__main__":
         
         cv.putText(img, f'FPS: {int(fps)}', (20, 70), cv.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 2)
         cv.imshow("Image", img)
-        cv.waitKey(1)
+        cv.waitKey(10)
