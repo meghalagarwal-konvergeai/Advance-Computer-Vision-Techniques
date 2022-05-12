@@ -4,8 +4,6 @@ import numpy as np
 import HandTrackingModule as htm
 import math
 from ctypes import cast, POINTER
-import sys 
-import os 
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 

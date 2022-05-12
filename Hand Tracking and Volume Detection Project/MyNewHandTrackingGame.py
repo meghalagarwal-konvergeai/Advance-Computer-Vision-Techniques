@@ -1,7 +1,7 @@
 import cv2 as cv
 import mediapipe as mp
 import time
-import HandTrackingModule as htm
+import HandTrackingModuleProject as htm
 
 
 pTime = 0

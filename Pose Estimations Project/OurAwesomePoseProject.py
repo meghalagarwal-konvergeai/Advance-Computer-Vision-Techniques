@@ -2,7 +2,7 @@ import cv2 as cv
 import mediapipe as mp
 import time
 import math
-import PoseEstimationModule as pem
+import PoseEstimationModuleProject as pem
 
 cap = cv.VideoCapture('/home/meghal/Personal/Konverge_AI/Training/Advance Computer Visions/Pose Estimations Project/Videos/1.mp4')
 pTime = 0
