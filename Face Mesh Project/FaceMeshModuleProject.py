@@ -15,9 +15,8 @@ class FaceMeshDetector():
         self.faceMesh = self.mpFaceMesh.FaceMesh(self.staticMode, self.maxFaces, self.minDetectionCon, self.minTrackCon)
         self.drawSpec = self.mpDraw.DrawingSpec(thickness=1, circle_radius=2)
 
-    def findFaceMesh(self, vid, draw=True):
-        self.vidRGB = cv.cvtColor(vid, cv.COLOR_BGR2RGB)
-        self.results = self.faceMesh.process(self.vidRGB)
+    def findFaceMesh(self, vid, vidRGB, draw=True):
+        self.results = self.faceMesh.process(vidRGB)
 
         faces =[]
         if self.results.multi_face_landmarks:
@@ -27,8 +26,7 @@ class FaceMeshDetector():
                     self.mpDraw.draw_landmarks(vid, faceLms, self.mpFaceMeshConnection, self.drawSpec, self.drawSpec)
                     face = []
 
-                for id,lm in enumerate(faceLms.landmark):
-                    
+                for id,lm in enumerate(faceLms.landmark):                    
                     ih, iw, ic = vid.shape
                     x,y = int(lm.x*iw), int(lm.y*ih)
                     #cv.putText(vid, str(id), (x, y), cv.FONT_HERSHEY_PLAIN,
@@ -48,7 +46,8 @@ if __name__ == "__main__":
 
     while True:
         success, vid = cap.read()
-        vid, faces = detector.findFaceMesh(vid)
+        vidRGB = cv.cvtColor(vid, cv.COLOR_BGR2RGB)
+        vid, faces = detector.findFaceMesh(vid, vidRGB)
 
         if len(faces)!= 0:
             print(faces[0])

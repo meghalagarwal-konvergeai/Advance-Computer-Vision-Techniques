@@ -12,8 +12,7 @@ class handDetector():
         self.trackCon = trackCon
  
         self.mpHands = mp.solutions.hands
-        self.hands = self.mpHands.Hands(self.mode, self.maxHands,
-        self.detectionCon, self.trackCon)
+        self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.detectionCon, self.trackCon)
         self.mpDraw = mp.solutions.drawing_utils
         self.tipIds = [4, 8, 12, 16, 20]
  
@@ -42,26 +41,26 @@ class handDetector():
                 # print(id, lm)
                 h, w, c = vid.shape
                 cx, cy = int(lm.x * w), int(lm.y * h)
-                xList.append(cx)
-                yList.append(cy)
+                # xList.append(cx)
+                # yList.append(cy)
                 #print(id, cx, cy)
                 self.lmList.append([id, cx, cy])
                 if draw:
                     cv.circle(vid, (cx, cy), 5, (255, 0, 255), cv.FILLED)
-                
-        xmin, xmax = min(xList), max(xList)
-        ymin, ymax = min(yList), max(yList)
-        bbox = xmin, ymin, xmax, ymax                
+        # print(f"List Details = {xList}")        
+        # xmin, xmax = min(xList), max(xList)
+        # ymin, ymax = min(yList), max(yList)
+        # bbox = xmin, ymin, xmax, ymax                
         
-        if draw:
-            cv.rectangle(vid, (xmin-20, ymin-20), (xmax+20, ymax+20), (0, 255, 0), 2)
-        print(xmin)
-        return self.lmList , bbox
+        # if draw:
+        #     cv.rectangle(vid, (xmin-20, ymin-20), (xmax+20, ymax+20), (0, 255, 0), 2)
+        
+        return self.lmList
     
     def fingersUp(self):
         fingers = []
         # Thumb
-        if self.lmList[self.tipIds[0]][1] > self.lmList[self.tipIds[0] - 1][1]:
+        if self.lmList[self.tipIds[0]][1] < self.lmList[self.tipIds[0] - 1][1]:
             fingers.append(1)
         else:
             fingers.append(0)
@@ -99,7 +98,7 @@ if __name__ == "__main__":
     while True:
         success, vid = cap.read()
         vid = detector.findHands(vid)
-        lmList, bbox = detector.findPosition(vid)
+        lmList = detector.findPosition(vid)
         if len(lmList) != 0:
             print(lmList)
  
