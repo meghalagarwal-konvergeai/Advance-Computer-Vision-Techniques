@@ -35,7 +35,7 @@ while True:
     # 1. Import image
     success, vid = cap.read()
     vid = cv.flip(vid, 1)
-    print(vid.shape)
+    #print(vid.shape)
 
     # 2. Find Hand Landmarks
     vid = detector.findHands(vid)

@@ -48,20 +48,20 @@ class handDetector():
                 if draw:
                     cv2.circle(img, (cx, cy), 5, (255, 0, 255), cv2.FILLED)
         # print(f"lmList Details= {xList, yList}")
-        xmin, xmax = min(xList), max(xList)
-        ymin, ymax = min(yList), max(yList)
-        bbox = xmin, ymin, xmax, ymax
+        # xmin, xmax = min(xList), max(xList)
+        # ymin, ymax = min(yList), max(yList)
+        # bbox = xmin, ymin, xmax, ymax
     
-        if draw:
-            cv2.rectangle(img, (xmin - 20, ymin - 20), (xmax + 20, ymax + 20), (0, 255, 0), 2)
-        # print(f"lmList Details= {xmin, xmax}")
+        # if draw:
+        #     cv2.rectangle(img, (xmin - 20, ymin - 20), (xmax + 20, ymax + 20), (0, 255, 0), 2)
+        # # print(f"lmList Details= {xmin, xmax}")
         return self.lmList, bbox
     
     def fingersUp(self):
         fingers = []
         
         # Thumb
-        if self.lmList[self.tipIds[0]][1] > self.lmList[self.tipIds[0] - 1][1]:
+        if self.lmList[self.tipIds[0]][1] < self.lmList[self.tipIds[0] - 1][1]:
             fingers.append(1)
         else:
             fingers.append(0)

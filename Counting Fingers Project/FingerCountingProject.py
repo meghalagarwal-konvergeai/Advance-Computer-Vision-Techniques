@@ -27,6 +27,7 @@ tipIds = [4, 8, 12, 16, 20]
 
 while True:
     success, vid = cap.read()
+    #vid = cv.flip(vid, 1)
     vid = detector.findHands(vid)
     lmList = detector.findPosition(vid, draw=False)
 
